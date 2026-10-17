@@ -1,0 +1,67 @@
+{
+  "SafeGuard": {
+
+  "color": {
+    "brand": {
+      "teal": { "value": "#13808A", "type": "color", "description": "주색: 버튼, 강조 숫자, 그래프" },
+      "teal-dark": { "value": "#0C5961", "type": "color", "description": "제목 강조, hover, 어두운 박스, 작은 텍스트" },
+      "teal-soft": { "value": "#DCEFEF", "type": "color", "description": "배지, 선택 메뉴, 그래프 트랙" },
+      "amber": { "value": "#FFBE2B", "type": "color", "description": "포인트 (글자색 금지)" }
+    },
+    "neutral": {
+      "black": { "value": "#1C1C1C", "type": "color", "description": "본문 텍스트, 푸터 배경" },
+      "gray": { "value": "#696969", "type": "color", "description": "보조 설명, 출처" },
+      "line": { "value": "#E4E2DC", "type": "color", "description": "구분선, 카드 테두리" },
+      "tool-bg": { "value": "#EEF3F6", "type": "color", "description": "사용프로그램 카드 배경" },
+      "ivory": { "value": "#F8F8F6", "type": "color", "description": "페이지 기본 배경" },
+      "white": { "value": "#FFFFFF", "type": "color", "description": "카드 배경" }
+    }
+  },
+  "font": {
+    "family": { "value": "Pretendard", "type": "fontFamilies" },
+    "weight": {
+      "regular": { "value": "400", "type": "fontWeights" },
+      "semibold": { "value": "600", "type": "fontWeights" },
+      "bold": { "value": "700", "type": "fontWeights" },
+      "extrabold": { "value": "800", "type": "fontWeights" }
+    }
+  },
+  "typography": {
+    "hero": { "value": { "fontFamily": "{font.family}", "fontWeight": "{font.weight.extrabold}", "fontSize": "138", "lineHeight": "100%", "letterSpacing": "-5%" }, "type": "typography", "description": "Hero 타이틀 clamp(56, 11vw, 138). 모바일 56" },
+    "slogan": { "value": { "fontFamily": "{font.family}", "fontWeight": "{font.weight.bold}", "fontSize": "38", "lineHeight": "140%", "letterSpacing": "-3%" }, "type": "typography", "description": "슬로건 clamp(22, 3vw, 38)" },
+    "h2": { "value": { "fontFamily": "{font.family}", "fontWeight": "{font.weight.bold}", "fontSize": "52", "lineHeight": "128%", "letterSpacing": "-3%" }, "type": "typography", "description": "섹션 제목 clamp(30, 4.4vw, 52)" },
+    "number": { "value": { "fontFamily": "{font.family}", "fontWeight": "{font.weight.extrabold}", "fontSize": "68", "lineHeight": "110%", "letterSpacing": "-4%" }, "type": "typography", "description": "핵심 숫자 clamp(44, 5.5vw, 68)" },
+    "card-title": { "value": { "fontFamily": "{font.family}", "fontWeight": "{font.weight.bold}", "fontSize": "22", "lineHeight": "130%", "letterSpacing": "-1%" }, "type": "typography", "description": "카드 제목 17~22" },
+    "lead": { "value": { "fontFamily": "{font.family}", "fontWeight": "{font.weight.regular}", "fontSize": "19", "lineHeight": "165%", "letterSpacing": "-1%" }, "type": "typography", "description": "리드 문단 clamp(16, 1.6vw, 19)" },
+    "body": { "value": { "fontFamily": "{font.family}", "fontWeight": "{font.weight.regular}", "fontSize": "16", "lineHeight": "165%", "letterSpacing": "-1%" }, "type": "typography", "description": "본문 14~16" },
+    "eyebrow": { "value": { "fontFamily": "{font.family}", "fontWeight": "{font.weight.bold}", "fontSize": "14", "lineHeight": "165%", "letterSpacing": "14%", "textCase": "uppercase" }, "type": "typography", "description": "영문 라벨" },
+    "caption": { "value": { "fontFamily": "{font.family}", "fontWeight": "{font.weight.regular}", "fontSize": "12.5", "lineHeight": "165%", "letterSpacing": "-1%" }, "type": "typography", "description": "출처/캡션" }
+  },
+  "radius": {
+    "chip": { "value": "8", "type": "borderRadius" },
+    "tab": { "value": "16", "type": "borderRadius" },
+    "card-sm": { "value": "20", "type": "borderRadius" },
+    "card": { "value": "24", "type": "borderRadius" },
+    "carousel": { "value": "32", "type": "borderRadius" },
+    "pill": { "value": "999", "type": "borderRadius" }
+  },
+  "spacing": {
+    "1": { "value": "8", "type": "spacing" },
+    "2": { "value": "16", "type": "spacing" },
+    "3": { "value": "24", "type": "spacing" },
+    "4": { "value": "32", "type": "spacing" },
+    "6": { "value": "48", "type": "spacing" },
+    "7": { "value": "56", "type": "spacing" },
+    "10": { "value": "80", "type": "spacing" },
+    "15": { "value": "120", "type": "spacing", "description": "섹션 상하 여백(모바일 80)" },
+    "content-width": { "value": "1200", "type": "sizing" },
+    "header-height": { "value": "72", "type": "sizing" }
+  },
+  "shadow": {
+    "card-hover": { "value": { "x": "0", "y": "20", "blur": "40", "spread": "0", "color": "#0C59611A", "type": "dropShadow" }, "type": "boxShadow", "description": "카드 hover" },
+    "tool-hover": { "value": { "x": "0", "y": "18", "blur": "36", "spread": "0", "color": "#0C59611F", "type": "dropShadow" }, "type": "boxShadow" }
+  }
+  },
+  "$themes": [],
+  "$metadata": { "tokenSetOrder": ["SafeGuard"] }
+}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="640" viewBox="0 0 1040 640" fill="none" font-family="Pretendard, Inter, Arial, sans-serif">
+  <rect width="1040" height="640" fill="#F8F8F6"/>
+  <text x="40" y="56" font-size="28" font-weight="800" fill="#0C5961">SafeGuard Color Palette</text>
+  <text x="40" y="84" font-size="14" fill="#696969">Brand · Neutral</text>
+
+  <g id="Brand">
+    <g id="teal"><rect x="40" y="110" width="220" height="150" rx="20" fill="#13808A"/><text x="58" y="206" font-size="18" font-weight="800" fill="#FFFFFF">Teal</text><text x="58" y="232" font-size="14" fill="#FFFFFF">#13808A</text><text x="58" y="250" font-size="12" fill="#FFFFFF" fill-opacity=".8">--teal · 주색</text></g>
+    <g id="teal-dark"><rect x="280" y="110" width="220" height="150" rx="20" fill="#0C5961"/><text x="298" y="206" font-size="18" font-weight="800" fill="#FFFFFF">Deep Teal</text><text x="298" y="232" font-size="14" fill="#FFFFFF">#0C5961</text><text x="298" y="250" font-size="12" fill="#FFFFFF" fill-opacity=".8">--teal-dark · 강조/hover</text></g>
+    <g id="teal-soft"><rect x="520" y="110" width="220" height="150" rx="20" fill="#DCEFEF"/><text x="538" y="206" font-size="18" font-weight="800" fill="#0C5961">Soft Teal</text><text x="538" y="232" font-size="14" fill="#0C5961">#DCEFEF</text><text x="538" y="250" font-size="12" fill="#0C5961" fill-opacity=".8">--teal-soft · 배지/트랙</text></g>
+    <g id="amber"><rect x="760" y="110" width="240" height="150" rx="20" fill="#FFBE2B"/><text x="778" y="206" font-size="18" font-weight="800" fill="#1C1C1C">Amber</text><text x="778" y="232" font-size="14" fill="#1C1C1C">#FFBE2B</text><text x="778" y="250" font-size="12" fill="#1C1C1C" fill-opacity=".8">--amber · 포인트</text></g>
+  </g>
+
+  <g id="Neutral">
+    <g id="black"><rect x="40" y="300" width="180" height="150" rx="20" fill="#1C1C1C"/><text x="58" y="396" font-size="18" font-weight="800" fill="#FFFFFF">Black</text><text x="58" y="422" font-size="14" fill="#FFFFFF">#1C1C1C</text><text x="58" y="440" font-size="12" fill="#FFFFFF" fill-opacity=".8">--black · 본문</text></g>
+    <g id="gray"><rect x="236" y="300" width="180" height="150" rx="20" fill="#696969"/><text x="254" y="396" font-size="18" font-weight="800" fill="#FFFFFF">Gray</text><text x="254" y="422" font-size="14" fill="#FFFFFF">#696969</text><text x="254" y="440" font-size="12" fill="#FFFFFF" fill-opacity=".8">--gray · 보조 글자</text></g>
+    <g id="line"><rect x="432" y="300" width="180" height="150" rx="20" fill="#E4E2DC"/><text x="450" y="396" font-size="18" font-weight="800" fill="#1C1C1C">Line</text><text x="450" y="422" font-size="14" fill="#1C1C1C">#E4E2DC</text><text x="450" y="440" font-size="12" fill="#1C1C1C" fill-opacity=".8">--line · 구분선</text></g>
+    <g id="tool-bg"><rect x="628" y="300" width="180" height="150" rx="20" fill="#EEF3F6"/><text x="646" y="396" font-size="18" font-weight="800" fill="#1C1C1C">Tool BG</text><text x="646" y="422" font-size="14" fill="#1C1C1C">#EEF3F6</text><text x="646" y="440" font-size="12" fill="#1C1C1C" fill-opacity=".8">도구 카드 배경</text></g>
+    <g id="ivory"><rect x="40" y="470" width="280" height="130" rx="20" fill="#F8F8F6" stroke="#E4E2DC" stroke-width="2"/><text x="58" y="540" font-size="18" font-weight="800" fill="#1C1C1C">Ivory</text><text x="58" y="566" font-size="14" fill="#1C1C1C">#F8F8F6</text><text x="58" y="584" font-size="12" fill="#1C1C1C" fill-opacity=".8">--bg · 페이지 배경</text></g>
+    <g id="white"><rect x="340" y="470" width="280" height="130" rx="20" fill="#FFFFFF" stroke="#E4E2DC" stroke-width="2"/><text x="358" y="540" font-size="18" font-weight="800" fill="#1C1C1C">White</text><text x="358" y="566" font-size="14" fill="#1C1C1C">#FFFFFF</text><text x="358" y="584" font-size="12" fill="#1C1C1C" fill-opacity=".8">--card · 카드 배경</text></g>
+  </g>
+</svg>
