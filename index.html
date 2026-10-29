@@ -150,7 +150,7 @@ section{padding:128px 0}
 #solution{overflow-x:clip}
 #solution,#tools{background:#fff}
 .feat-slider{position:relative;padding-bottom:96px}
-.feat-slider::before{content:"";position:absolute;left:calc(50% - 50vw);top:72px;bottom:0;width:95vw;background:var(--teal-soft);border:0;border-radius:0 22px 22px 0}
+.feat-slider::before{content:"";position:absolute;left:calc(50% - 50vw);top:72px;bottom:0;width:var(--pw,95vw);background:var(--teal-soft);border:0;border-radius:0 22px 22px 0}
 .fs-wrap{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start}
 .fs-view{position:relative;flex-shrink:0;width:62.5%;margin-right:auto}
 .fs-view .slide_box{position:relative}
@@ -226,6 +226,22 @@ section{padding:128px 0}
 .topbtn{position:fixed;right:24px;bottom:24px;width:44px;height:44px;border-radius:50%;background:var(--panel);border:1px solid var(--line-2);color:var(--t1);font-size:16px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;z-index:90}
 .topbtn.show{opacity:1;pointer-events:auto}
 
+/* 스크롤 애니메이션 (GSAP ScrollTrigger) */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:120;background:var(--amber);transform:scaleX(0);transform-origin:left;pointer-events:none}
+.mask{display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.14em}
+.mask .inner{display:block;will-change:transform}
+.hero{transition:border-radius 1.2s cubic-bezier(.22,1,.36,1)}
+.hero.pre{border-radius:0;transition:none}
+.gsap-on .problem-box .fill{background:linear-gradient(#fff,#fff) 0 0/var(--f,0%) 100% no-repeat,rgba(255,255,255,.3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.gsap-on .problem-box .fill b{-webkit-text-fill-color:var(--amber)}
+.proc{position:relative}
+.proc::before,.proc::after{content:"";position:absolute;left:34px;top:34px;bottom:34px;width:2px;z-index:0}
+.proc::before{background:rgba(28,28,28,.12)}
+.proc::after{background:var(--teal);transform-origin:top}
+.gsap-on .proc::after{transform:scaleY(var(--p,0))}
+.proc li{position:relative;z-index:1}
+.gsap-on .proc li::before{background:#fff;color:var(--teal-dark);border:1px solid var(--line-2);transition:background-color .4s,color .4s,border-color .4s}
+.gsap-on .proc li.on::before{background:var(--teal);color:#fff;border-color:var(--teal)}
 /* 반응형 */
 @media(max-width:1000px){
   .members{grid-template-columns:repeat(3,1fr)}
@@ -263,11 +279,13 @@ section{padding:128px 0}
   .fs-view .txt_box_in{flex-direction:column;align-items:flex-start;border-radius:0 0 12px 12px;background:var(--panel);backdrop-filter:none}
   .fs-view .tags{margin-top:4px;flex-wrap:wrap}
 }
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+/* 동작 줄이기 설정: 위치가 크게 움직이는 효과만 끄고, 서서히 나타나는 효과는 유지 */
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scroll .wheel{animation:none}.rv,.fs-thumb,.fs-view .img_box{transform:none!important}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">본문 바로가기</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
 <header class="header" id="header">
   <div class="wrap in">
@@ -314,7 +332,7 @@ section{padding:128px 0}
 
 <section id="problem">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2 class="h2">실종 대응, 왜 훈련이 필요할까요?</h2>
     </div>
     <div class="stats">
@@ -346,14 +364,14 @@ section{padding:128px 0}
     </article>
     <div class="problem-box rv">
       <span class="pill">문제 정의</span>
-      <p>보호자는 실종 대응 절차를 <b>실제 상황 전에 연습할 수단이 없어</b>, 정작 골든타임에 대응이 지연됩니다.</p>
+      <p><span class="fill">보호자는 실종 대응 절차를 <b>실제 상황 전에 연습할 수단이 없어</b>, 정작 골든타임에 대응이 지연됩니다.</span></p>
     </div>
   </div>
 </section>
 
 <section id="target">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2 class="h2">누구를 위한 훈련인가요?</h2>
     </div>
     <div class="targets">
@@ -379,7 +397,7 @@ section{padding:128px 0}
 
 <section id="solution">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2 class="h2">훈련으로 준비하는 실종 대응</h2>
     </div>
     <div class="feat-slider" id="featSlider" aria-roledescription="carousel" aria-label="핵심 기능">
@@ -426,7 +444,7 @@ section{padding:128px 0}
 
 <section id="next">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2 class="h2">다음 시나리오로 확장합니다</h2>
     </div>
     <div class="nexts">
@@ -445,7 +463,7 @@ section{padding:128px 0}
 
 <section id="tools">
   <div class="wrap tools-wrap">
-    <div class="tools-head rv">
+    <div class="tools-head">
       <h2 class="h2">사용프로그램</h2>
       <p class="lead">게임 프로젝트 제작에 사용된 다양한 프로그램. 개발 및 구현 과정에 활용된 핵심 개발 및 디자인 도구</p>
     </div>
@@ -462,7 +480,7 @@ section{padding:128px 0}
 
 <section id="team">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2 class="h2">Our Team</h2>
     </div>
     <ul class="members">
@@ -488,7 +506,11 @@ section{padding:128px 0}
 </footer>
 <button class="topbtn" id="topbtn" aria-label="맨 위로">↑</button>
 
+<div id="react-root"></div>
 <script src="assets/swiper.js"></script>
+<script src="assets/gsap.min.js"></script>
+<script src="assets/ScrollTrigger.min.js"></script>
+<script src="assets/motion-app.js"></script>
 <script>
 (function(){
   var header=document.getElementById('header'),nav=document.getElementById('nav'),
@@ -529,7 +551,7 @@ section{padding:128px 0}
     var cur=root.querySelector('.current'),tot=root.querySelector('.total');
     var n=root.querySelectorAll('.fs-view .swiper-slide').length;
     var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var spd=reduce?0:1000;
+    var spd=1000;
     var thumb=new Swiper('#featSlider .fs-thumb',{slidesPerView:2,spaceBetween:20,loop:true,speed:spd,loopedSlides:n,slideToClickedSlide:false,
       autoplay:{delay:5000,disableOnInteraction:false}});
     var view=new Swiper('#featSlider .fs-view',{effect:'fade',fadeEffect:{crossFade:true},slidesPerView:1,spaceBetween:0,loop:true,speed:spd,loopedSlides:n,
@@ -550,6 +572,79 @@ section{padding:128px 0}
     window.scrollTo({top:y,behavior:'smooth'});
   });
 })();
-</script>
+// 스크롤 애니메이션: 꼬마별 사이트와 같은 GSAP ScrollTrigger
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!window.gsap||!window.ScrollTrigger)return;
+  gsap.registerPlugin(ScrollTrigger);
+  document.documentElement.classList.add('gsap-on');
+
+  // 1) 상단 진행 막대
+  gsap.to('#progress',{scaleX:1,ease:'none',scrollTrigger:{trigger:document.body,start:'top top',end:'bottom bottom',scrub:.3}});
+
+  // 2) 히어로: 배경 패럴랙스, 글자는 위로 사라짐, 둥근 모서리는 처음에 열림 (동작 줄이기 설정에서는 생략)
+  var hero=document.querySelector('.hero');
+  if(!reduce){
+    hero.classList.add('pre');
+    requestAnimationFrame(function(){requestAnimationFrame(function(){hero.classList.remove('pre')})});
+    gsap.to('.hero-bg img',{yPercent:14,scale:1.1,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'bottom top',scrub:true}});
+    gsap.to('.hero-in',{y:-70,opacity:0,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'70% top',scrub:true}});
+  } else {
+    gsap.to('.hero-in',{opacity:0,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'70% top',scrub:true}});
+  }
+  gsap.to('.scroll',{opacity:0,y:reduce?0:20,ease:'none',scrollTrigger:{trigger:hero,start:'top top',end:'25% top',scrub:true}});
+  // 3) 섹션 제목: 마스크 안에서 아래에서 올라옴
+  document.querySelectorAll('.sec-head .h2,.tools-head .h2').forEach(function(h){
+    var t=h.textContent;
+    h.innerHTML='<span class="mask"><span class="inner">'+t+'</span></span>';
+    gsap.fromTo(h.querySelector('.inner'),reduce?{opacity:0}:{yPercent:110},reduce?{opacity:1,duration:.9,ease:'power2.out',scrollTrigger:{trigger:h,start:'top 88%',once:true}}:{yPercent:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:h,start:'top 88%',once:true}});
+  });
+
+  // 4) 통계 숫자 카운트업
+  document.querySelectorAll('.stat .num').forEach(function(el){
+    var tn=el.firstChild,txt=tn.nodeValue.trim(),end=parseFloat(txt.replace(/,/g,'')),comma=txt.indexOf(',')>-1,o={v:0};
+    tn.nodeValue='0';
+    gsap.to(o,{v:end,duration:1.6,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%',once:true},
+      onUpdate:function(){var v=Math.round(o.v);tn.nodeValue=comma?v.toLocaleString('en-US'):String(v)}});
+  });
+
+  // 5) 막대 그래프: 아래에서 자라며 숫자도 함께 올라감
+  var dcard=document.querySelector('.dcard');
+  if(dcard){
+    dcard.querySelectorAll('.vb').forEach(function(vb,idx){
+      var bar=vb.querySelector('.track i'),lab=vb.querySelector('b'),tn=lab.firstChild,target=parseFloat(bar.style.height),o={v:0};
+      bar.style.height='0%';tn.nodeValue='0%';
+      ScrollTrigger.create({trigger:dcard,start:'top 75%',once:true,onEnter:function(){
+        gsap.to(bar,{height:target+'%',duration:1.3,ease:'power3.out',delay:idx*.15});
+        gsap.to(o,{v:target,duration:1.3,ease:'power3.out',delay:idx*.15,onUpdate:function(){tn.nodeValue=Math.round(o.v)+'%'}});
+      }});
+    });
+  }
+
+  // 6) 문제 정의 문장: 스크롤에 따라 글자가 차오름 (꼬마별 소개 문구 방식)
+  var pf=document.querySelector('.problem-box .fill');
+  if(pf){
+    gsap.set(pf,{'--f':'0%'});
+    gsap.to(pf,{'--f':'100%',ease:'none',scrollTrigger:{trigger:'.problem-box',start:'top 78%',end:'bottom 45%',scrub:.6}});
+  }
+
+  // 7) 핵심 기능 배경 판이 옆으로 넓어짐
+  var fs=document.querySelector('.feat-slider');
+  if(fs&&!reduce){
+    gsap.fromTo(fs,{'--pw':'62vw'},{'--pw':'95vw',ease:'none',scrollTrigger:{trigger:fs,start:'top 90%',end:'top 35%',scrub:.6}});
+  }
+
+  // 8) 대응 5단계: 세로선이 이어지며 번호가 켜짐
+  var proc=document.querySelector('.proc');
+  if(proc){
+    gsap.set(proc,{'--p':0});
+    gsap.to(proc,{'--p':1,ease:'none',scrollTrigger:{trigger:proc,start:'top 65%',end:'bottom 55%',scrub:.5}});
+    proc.querySelectorAll('li').forEach(function(li){
+      ScrollTrigger.create({trigger:li,start:'top 62%',toggleClass:{targets:li,className:'on'}});
+    });
+  }
+
+  window.addEventListener('load',function(){ScrollTrigger.refresh()});
+})();</script>
 </body>
 </html>
