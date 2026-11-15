@@ -104,8 +104,16 @@
 
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        // Fit the canvas to the browser window (keeps the 960:600 ratio, leaves room for the footer).
+        var FOOTER_H = 38, RATIO = 960 / 600;
+        function fitCanvas() {
+          var w = window.innerWidth, h = window.innerHeight - FOOTER_H;
+          if (w / h > RATIO) w = h * RATIO; else h = w / RATIO;
+          canvas.style.width = Math.floor(w) + "px";
+          canvas.style.height = Math.floor(h) + "px";
+        }
+        fitCanvas();
+        window.addEventListener("resize", fitCanvas);
       }
 
       document.querySelector("#unity-loading-bar").style.display = "block";
